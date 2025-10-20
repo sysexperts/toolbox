@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}Buchhaltungssoftware{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-header__content">
+        <span class="app-logo">LedgerCare</span>
+        <nav>
+          <a href="{{ url_for('main.login') }}">Login</a>
+          <a href="{{ url_for('main.privacy') }}">Datenschutz</a>
+          {% if session.get('user') %}
+          <a href="{{ url_for('main.logout') }}">Abmelden</a>
+          {% endif %}
+        </nav>
+      </div>
+    </header>
+    <main class="app-main">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="alerts" role="status" aria-live="polite">
+            {% for category, message in messages %}
+              <div class="alert alert--{{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+    <footer class="app-footer">
+      <p>&copy; {{ config.get('COMPANY_NAME', 'LedgerCare GmbH') }} · <a href="{{ url_for('main.privacy') }}">Datenschutzhinweise</a></p>
+    </footer>
+  </body>
+</html>

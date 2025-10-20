@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Adminbereich · LedgerCare{% endblock %}
+{% block content %}
+<section class="card">
+  <h1>Willkommen, {{ user }}!</h1>
+  <p class="card__description">
+    Sie befinden sich im geschützten Administrationsbereich der Buchhaltungssoftware. Hier könnten zukünftig
+    Mandanten, Finanzberichte und Exportfunktionen verwaltet werden.
+  </p>
+  <ul class="list">
+    <li>DSGVO-Hinweis: Es werden nur für die Anmeldung notwendige Daten verarbeitet.</li>
+    <li>Aktive Sitzung: {{ session.permanent|default(False) and 'permanent' or 'temporär' }}</li>
+  </ul>
+  <div class="form-actions">
+    <a class="button" href="{{ url_for('main.logout') }}">Abmelden</a>
+  </div>
+</section>
+{% endblock %}

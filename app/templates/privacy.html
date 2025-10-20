@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Datenschutzhinweise · LedgerCare{% endblock %}
+{% block content %}
+<section class="card">
+  <h1>Datenschutzhinweise</h1>
+  <p class="card__description">
+    Diese Demo-Anwendung speichert keine personenbezogenen Daten dauerhaft. Die eingegebenen Login-Daten werden
+    ausschließlich zur Authentifizierung innerhalb der aktuellen Sitzung verwendet.
+  </p>
+  <ul class="list">
+    <li>Verantwortlicher: LedgerCare GmbH (Demo)</li>
+    <li>Zweck der Verarbeitung: Authentifizierung des Administrators zur Systemkonfiguration.</li>
+    <li>Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Absicherung der Anwendung).</li>
+    <li>Empfänger: Keine Weitergabe.</li>
+    <li>Speicherdauer: Session-Cookies werden beim Schließen des Browsers entfernt.</li>
+    <li>Betroffenenrechte: Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch gemäß Art. 15-21 DSGVO.</li>
+    <li>Kontakt für Datenschutzanfragen: privacy@ledgercare.demo</li>
+  </ul>
+  <p>
+    Diese Hinweise dienen als Ausgangspunkt für eine DSGVO-konforme Umsetzung. In einem Produktivsystem sollten Sie
+    die Angaben durch rechtliche Beratung prüfen lassen.
+  </p>
+</section>
+{% endblock %}

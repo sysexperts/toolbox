@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Login · LedgerCare{% endblock %}
+{% block content %}
+<section class="card">
+  <h1>Anmeldung</h1>
+  <p class="card__description">
+    Bitte melden Sie sich mit Ihren administrativen Zugangsdaten an. Die Demo-Zugangsdaten lauten
+    <strong>admin / admin</strong>.
+  </p>
+  <form method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="form-field">
+      {{ form.username.label(class_="form-label") }}
+      {{ form.username(class_="form-input", autocomplete="username") }}
+      {% if form.username.errors %}
+        <div class="form-error">{{ form.username.errors[0] }}</div>
+      {% endif %}
+    </div>
+    <div class="form-field">
+      {{ form.password.label(class_="form-label") }}
+      {{ form.password(class_="form-input", autocomplete="current-password") }}
+      {% if form.password.errors %}
+        <div class="form-error">{{ form.password.errors[0] }}</div>
+      {% endif %}
+    </div>
+    <div class="form-actions">
+      {{ form.submit(class_="button button--primary") }}
+    </div>
+  </form>
+  <p class="card__footer">
+    Mit Ihrer Anmeldung bestätigen Sie, dass Sie die <a href="{{ privacy_url }}">Datenschutzhinweise</a> gelesen haben.
+  </p>
+</section>
+{% endblock %}
