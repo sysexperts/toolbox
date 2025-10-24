@@ -1,0 +1,2 @@
+-- SQL migration content
+-- Add your SQL code here
